@@ -7,7 +7,7 @@ app.use(bodyParser.json())
 // Use Angular
 app.use(express.static( __dirname + '/client/dist/client' ));
 
-mongoose.connect('mongodb://localhost/*****CHANGE ME TO NEW DB*****')
+mongoose.connect('mongodb://localhost/CYOA')
 require('./server/models.js')
 
 require('./server/routes.js') (app)
