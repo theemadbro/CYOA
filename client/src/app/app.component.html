@@ -1,6 +1,5 @@
 <div class="banner">
-  <h2>Choose Your Own Adventure!</h2><button>Home</button><button>Board</button><button>View Aventures</button>
+  <h3>Choose Your Own Adventure!</h3><button [routerLink]="['/']">Home</button><button [routerLink]="['/board']">Board</button><button id="rightbutton">View Aventures</button>
 </div>
-<a href="/board" [routerLink]="['/board']">Board</a>
 
 <router-outlet></router-outlet>
