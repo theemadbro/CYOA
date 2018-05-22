@@ -14,6 +14,7 @@ module.exports = function(app) {
 		var newstory = new story({
 			title: req.body.title,
 			transitionTable: req.body.table
+			rating: req.body.rating
 		})
 		newstory.save(function(err, data){
 			if (err) {
@@ -27,6 +28,20 @@ module.exports = function(app) {
 				pack['data'] = data
 				res.json(pack)
 				// res.redirect('/pets/'+data._id)
+			}
+		})
+	})
+
+	//get a story
+	app.get('/story/:id', function(req, res) {
+		console.log('get one')
+		story.findOne({_id: req.params.id}, function(err, singleData) {
+			if (err) {
+				console.log(err)
+				res.json(err)
+			}
+			else {
+				res.json(singleData)
 			}
 		})
 	})
