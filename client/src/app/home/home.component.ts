@@ -10,8 +10,10 @@ export class HomeComponent implements OnInit {
 	constructor(private chat: ChatService) { 
 	}
 	textarea: any;
+	log: any;
 
 	ngOnInit() {
+		this.log = []
 		this.chat.messages.subscribe(msg => {
     		console.log(msg);
     	})
@@ -19,6 +21,7 @@ export class HomeComponent implements OnInit {
 
 	sendMessage() {
 		this.chat.sendMsg(this.textarea);
+		this.log.push(this.textarea)
 		this.textarea = ''
 	}
 

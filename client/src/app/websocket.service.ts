@@ -15,7 +15,7 @@ export class WebsocketService {
 	constructor() { }
 
 	connect(): Rx.Subject<MessageEvent> {
-		this.socket = io('http://localhost:8000')
+		this.socket = io('25.9.29.81:8000')
 
 		let observable = new Observable(observer => {
 			this.socket.on('message', (data) => {

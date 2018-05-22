@@ -6,3 +6,6 @@
 	type="text" 
 	[(ngModel)]="textarea">
 <button (click)="sendMessage()">Send Message</button>
+<div id="chatlog">
+	<p *ngFor="let i of log">{{i}}</p>
+</div>
