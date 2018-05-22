@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../chat.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+	selector: 'app-home',
+	templateUrl: './home.component.html',
+	styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+	constructor(private chat: ChatService) { 
+	}
+	textarea: any;
 
-  constructor() { }
+	ngOnInit() {
+		this.chat.messages.subscribe(msg => {
+    		console.log(msg);
+    	})
+	}
 
-  ngOnInit() {
-  }
+	sendMessage() {
+		this.chat.sendMsg(this.textarea);
+		this.textarea = ''
+	}
 
 }

@@ -21,12 +21,14 @@ import { HomeComponent } from './home/home.component';
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        FormsModule,
+        
     ],
     providers: [
         WebsocketService,
         ChatService,
-        HttpService
+        HttpService,
     ],
   bootstrap: [AppComponent]
 })
