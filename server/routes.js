@@ -13,7 +13,7 @@ module.exports = function(app) {
 		console.log('making new story')
 		var newstory = new story({
 			title: req.body.title,
-			transitionTable: req.body.table
+			transitionTable: req.body.table,
 			rating: req.body.rating
 		})
 		newstory.save(function(err, data){
