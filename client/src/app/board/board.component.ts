@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { } from 'angular2-tree-diagram';
 
 @Component({
   selector: 'app-board',
@@ -7,6 +6,7 @@ import { } from 'angular2-tree-diagram';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
+
 
   constructor() { }
 
