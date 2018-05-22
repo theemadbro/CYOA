@@ -17,13 +17,12 @@ import { HomeComponent } from './home/home.component';
     declarations: [
         AppComponent,
         BoardComponent,
-        HomeComponent
+        HomeComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule,
-        
+        FormsModule
     ],
     providers: [
         WebsocketService,

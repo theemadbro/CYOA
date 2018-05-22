@@ -15,10 +15,15 @@ body {
 	background-color: #a87446;
 	border: 5px solid #77512e;
 }
+#layoutholder {
+	display: flex;
+	align-items: center;
+}
 .scenebox {
 	height: 180px;
 	width: 300px;
 	display: inline-block;
+	background-color: skyblue;
 }
 #lower {
 	display: inline-block;
@@ -30,12 +35,10 @@ body {
 	border: 5px solid #434547;
 }
 #sbprime {
-	position: relative;
-	/*top: 30%;*/
-	
 	background-color: blue;
 }
 #zoomstuff {
+	margin-bottom: 15px;
 	position: sticky;
 	padding: 5px;
 	display: inline-block;
@@ -53,9 +56,17 @@ body {
 	display: inline-block;
 	padding: 3px;
 }
+.children {
+	display: flex;
+	margin-left: 10px;
+}
 
 #sb1 {
-	/*position:relative;*/
-	right: 100%;
 	background-color: red;
+}
+#sb2 {
+	background-color: green;
+}
+#sb3 {
+	background-color: black;
 }
