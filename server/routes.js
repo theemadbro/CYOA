@@ -119,7 +119,6 @@ module.exports = function(app) {
 						console.log('DELETE SUCCESSFULL')
 						pack['data'] = data
 						res.json(pack)
-						// res.redirect('/author/'+data._id)
 					}
 				})
 			}
@@ -141,18 +140,18 @@ module.exports = function(app) {
 			}
 			else {
 				console.log('success!', singleData)
-				auth = singleData
+				story = singleData
 				if (req.body.val == '+'){
 					console.log('upvote')
-					var quoteU = auth.quotes.id(req.params.id2)
+					var quoteU = story.quotes.id(req.params.id2)
 					quoteU.rating += 1
 				}
 				else {
 					console.log('downvote')
-					var quoteU = auth.quotes.id(req.params.id2)
+					var quoteU = story.quotes.id(req.params.id2)
 					quoteU.rating -= 1
 				}
-				auth.save(function(err, data) {
+				story.save(function(err, data) {
 					if (err) {
 						console.log('ERROR IN RATING STORY ', req.params.id1)
 						res.json(err)
