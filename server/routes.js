@@ -32,6 +32,22 @@ module.exports = function(app) {
 		})
 	})
 
+	//get all stories
+	app.get('/story', function(req, res) {
+		console.log('get all')
+		story.find({}, function(err, data) {
+			if (err) {
+				console.log(err)
+				pack['state'] = 'bad'
+				pack['data'] = err
+				res.json(err)
+			}
+			else {
+				res.json({data: data})
+			}
+		})
+	})
+
 	//get a story
 	app.get('/story/:id', function(req, res) {
 		console.log('get one')
