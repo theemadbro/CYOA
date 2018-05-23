@@ -12,12 +12,16 @@ import { FormsModule } from '@angular/forms';
 
 import { BoardComponent } from './board/board.component';
 import { HomeComponent } from './home/home.component';
+import { ViewadvComponent } from './viewadv/viewadv.component';
+import { ViewoneComponent } from './viewone/viewone.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         BoardComponent,
         HomeComponent,
+        ViewadvComponent,
+        ViewoneComponent,
     ],
     imports: [
         BrowserModule,
