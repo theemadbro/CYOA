@@ -159,6 +159,26 @@ module.exports = function(app) {
 				update = singleData
 				console.log('update', update)
 				update.nodeList.pull(req.params.id2)
+
+
+				/*
+				update.find({ nodeList: {$in: {"transitions":"req.params.id2"}}}, function(err, parents) {
+					if (err) {
+						console.log(err)
+						pack['state'] = 'bad'
+						pack['data'] = err
+						res.json(err)
+					}
+					else {
+						console.log(parents)
+						parents.forEach(parents.transitions.pull(req.params.id2))
+					}
+				})
+				*/
+
+
+
+
 				update.save(function(err, data){
 					if (err) {
 						console.log('ERROR IN NODE DELETION')
@@ -169,9 +189,23 @@ module.exports = function(app) {
 					else {
 						console.log('DELETE SUCCESSFULL')
 						pack['data'] = data
-						res.json(pack)
+						//res.json(pack)
 					}
 				})
+			}
+		})
+		//remove deleted node from references
+		story.update({"_id": req.params.id1, "nodeList.transitions":req.params.id2},
+			{$pullAll:{"nodeList.$.transitions":[req.params.id2]}},
+			function(err, singleData) {
+			if (err) {
+				console.log(err)
+				res.json(err)
+			} 
+			else { 
+				console.log('changed '+ singleData._id)
+				console.log(singleData)
+				res.json(singleData)
 			}
 		})
 	})
