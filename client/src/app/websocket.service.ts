@@ -15,11 +15,11 @@ export class WebsocketService {
 	constructor() { }
 
 	connect(): Rx.Subject<MessageEvent> {
-		this.socket = io('25.9.29.81:8000')
+		this.socket = io('http://192.168.1.236:8000')
 
 		let observable = new Observable(observer => {
 			this.socket.on('message', (data) => {
-				console.log("Recieved a message from websocket server")
+				console.log("Received a message from websocket server")
 				observer.next(data);
 			})
 			return () => {
