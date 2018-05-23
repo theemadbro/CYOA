@@ -12,9 +12,7 @@ module.exports = function(app) {
 		}
 		console.log('making new story')
 		var newstory = new story({
-			title: req.body.title,
-			transitionTable: req.body.table,
-			rating: req.body.rating
+			title: req.body.title
 		})
 		newstory.save(function(err, data){
 			if (err) {
@@ -62,6 +60,24 @@ module.exports = function(app) {
 		})
 	})
 
+	//edit a preexisting story
+	app.put('/story/:id', function(req, res) {
+		let updatedInfo = {
+			title: req.body.title
+		}
+		story.updateOne({_id: req.params.id}, updatedInfo, function(err, singleData) {
+			if (err) {
+				console.log(err)
+				res.json(err)
+			} 
+			else { 
+				console.log('changed '+ singleData._id)
+				console.log(singleData)
+				res.json(singleData)
+			}
+		})
+	}) 
+
 	//delete story
 	app.delete('/story/:id', function(req, res) {
 		story.deleteOne({_id: req.params.id}, function(err, singleData) {
@@ -89,7 +105,7 @@ module.exports = function(app) {
 			else {
 				currentStory = singleData
 				console.log(currentStory)
-				currentStory.nodeList.push({content: req.body.content, note: req.body.note})
+				currentStory.nodeList.push({content: req.body.content, transitions: req.body.transitions, note: req.body.note})
 				currentStory.save(function(err, data){
 					if (err) {
 						console.log('NODE CREATION ERROR')
@@ -107,6 +123,25 @@ module.exports = function(app) {
 			}
 		})
 	})
+
+	//edit a preexisting node in a story
+	app.put('/story/:id1/node/:id2', function(req, res) {
+		story.findOneAndUpdate(
+			{"_id": req.params.id1, "nodeList._id": req.params.id2}, 
+			{$set:{"nodeList.$.content":req.body.content, "nodeList.$.note":req.body.note}},
+			{returnNewDocument: true},
+			function(err, finalData) {
+				if (err) {
+					console.log(err)
+					res.json(err)
+				}
+				else {
+					console.log("Updated node data: ", finalData)
+					res.json(finalData)
+				}
+			}
+		)
+	}) 
 
 	//delete node from specific story
 	app.delete('/story/:id1/node/:id2', function(req, res) {
