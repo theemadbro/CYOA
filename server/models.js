@@ -9,8 +9,7 @@ mongoose.model('CYOA', CYOAschema)
 var Nodeschema = new mongoose.Schema({
 	content: {type:String, default: "Enter text here", required: true},
 	note: {type:String, required: false},
-	transitions: {type:[Number], default: [-1,-1,-1], required: true}, //-1 will indicate the lack of a valid path from that option, this should be defined elsewhere and then updated here
-	//consider adding functionality of including images or other features to each node
+	transitions: {type:[String], default: [], required: true}
 })
 mongoose.model('Node', Nodeschema)
 

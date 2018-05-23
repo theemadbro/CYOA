@@ -176,33 +176,50 @@ module.exports = function(app) {
 		})
 	})
 
+	//create link from one node (using fromid) to another (using toid)
+	app.put('/story/:id/node/:fromid/:toid', function(req, res) {
+		story.findOneAndUpdate(
+			{"_id": req.params.id, "nodeList._id": req.params.fromid}, 
+			{$push:{"nodeList.$.transitions":req.params.toid}},
+			{new: true},
+			function(err, finalData) {
+				if (err) {
+					console.log(err)
+					res.json(err)
+				}
+				else {
+					console.log("Updated node data: ", finalData)
+					res.json(finalData)
+				}
+			}
+		)
+	})
+
 	//contribute positive/negative vote to a story
-	app.put('/story/:id1', function(req, res) {
+	app.put('/vote/:id1', function(req, res) {
 		console.log('vote request on story ', req.params.id1)
 		var pack = {
 			state: "good",
 			data: '',
 		}
 
-		story.findOne({_id: req.params.id1}, function(err, singleData) {
+		story.findOne({_id: req.params.id1}, function(err, storyData) {
 			if (err) {
 				console.log('error!', err)
 				res.json(err)
 			}
 			else {
-				console.log('success!', singleData)
-				story = singleData
+				console.log('success!', storyData)
+				update = storyData
 				if (req.body.val == '+'){
 					console.log('upvote')
-					var quoteU = story.quotes.id(req.params.id2)
-					quoteU.rating += 1
+					update.rating += 1
 				}
 				else {
 					console.log('downvote')
-					var quoteU = story.quotes.id(req.params.id2)
-					quoteU.rating -= 1
+					update.rating -= 1
 				}
-				story.save(function(err, data) {
+				storyData.save(function(err, data) {
 					if (err) {
 						console.log('ERROR IN RATING STORY ', req.params.id1)
 						res.json(err)
