@@ -1,24 +1,164 @@
 <div id="layout">
 	<div id="zoomstuff"><button class="zoom">+</button><button class="zoom">-</button> <p id="zoomtext">100%</p></div><br>
 	<div id="layoutholder">
-		<div class="scenebox" id="sbprime"></div>
-		<div class="children" id="sbprimechildren">
-			<div class="scenebox" id="sb1"></div><br>
-<!-- 				<div class="children">
-					<div class="scenebox" ></div><br>
-					<div class="scenebox" ></div><br>
-					<div class="scenebox" ></div>
-				</div> -->
-			<div class="scenebox" id="sb2"></div><br>
-<!-- 			<div class="children">
-					<div class="scenebox" ></div><br>
-					<div class="scenebox" ></div><br>
-					<div class="scenebox" ></div>
-				</div> -->
+		<div class="layoutrow">
+			<div class="scenebox" id="sbprime"></div>
+		</div>
+		<div class="layoutrow">
+			<div class="scenebox" id="sb1"></div>
+			<div class="scenebox" id="sb2"></div>
 			<div class="scenebox" id="sb3"></div>
 		</div>
+		<div class="layoutrow">
+			<div class="scenebox child" id="sb4"></div>
+			<div class="scenebox child" id="sb5"></div>
+		</div>
+
+		
 	</div>
 
 	
 </div>
 <div id="lower"></div>
+<hr>
+
+
+
+<div class="wrapper"><span class="label">Root</span>
+  <div class="branch lv1">
+    <div class="entry"><span class="label">Entry-1</span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label">Entry-1-1</span>
+          <div class="branch lv3">
+            <div class="entry sole"><span class="label">Entry-1-1-1</span></div>
+          </div>
+        </div>
+        <div class="entry"><span class="label">Entry-1-2</span>
+          <div class="branch lv3">
+            <div class="entry sole"><span class="label">Entry-1-2-1</span></div>
+          </div>
+        </div>
+        <div class="entry"><span class="label">Entry-1-3</span>
+          <div class="branch lv3">
+            <div class="entry sole"><span class="label">Entry-1-3-1</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry"><span class="label">Entry-2</span></div>
+    <div class="entry"><span class="label">Entry-3</span>
+      <div class="branch lv2">
+        <div class="entry"><span class="label">Entry-3-1</span></div>
+        <div class="entry"><span class="label">Entry-3-2</span></div>
+        <div class="entry"><span class="label">Entry-3-3</span>
+          <div class="branch lv3">
+            <div class="entry"><span class="label">Entry-3-3-1</span></div>
+            <div class="entry"><span class="label">Entry-3-3-2</span>
+              <div class="branch lv4">
+                <div class="entry"><span class="label">Entry-3-3-2-1</span></div>
+                <div class="entry"><span class="label">Entry-3-3-2-2</span></div>
+              </div>
+            </div>
+            <div class="entry"><span class="label">Entry-3-3-3</span></div>
+          </div>
+        </div>
+        <div class="entry"><span class="label">Entry-3-4</span></div>
+      </div>
+    </div>
+    <div class="entry"><span class="label">Entry-4</span></div>
+    <div class="entry"><span class="label">Entry-5</span></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="wrapper">
+    <span class="label">Root</span>
+    <div class="branch lv1">
+        <div class="entry">
+            <span class="label">Entry-1</span>
+            <div class="branch lv2">
+                <div class="entry">
+                    <span class="label">Entry-1-1</span>
+                    <div class="branch lv3">
+                        <div class="entry sole">
+                            <span class="label">Entry-1-1-1</span>
+                            <div class="branch 1v4">
+                                <div class="entry"><span class="label">Entry-1-1-1-1</span></div>
+                                <div class="entry">
+                                    <span class="label">Entry-1-1-1-2</span>
+                                    <div class="branch 1v5">
+                                        <div class="entry"><span class="label">Entry-1-1-1-2-1</span></div>
+                                        <div class="entry"><span class="label">Entry-1-1-1-2-2</span></div>
+                                    </div>
+                                </div>
+                                <div class="entry"><span class="label">Entry-1-1-1-3</span></div>
+                                <div class="entry">
+                                    <span class="label">Entry-1-1-1-4</span>
+                                    <div class="branch 1v5">
+                                        <div class="entry">
+                                            <span class="label">Entry-1-1-1-4-1</span>
+                                            <div class="branch 1v5">
+                                                <div class="entry"><span class="label">Entry-1-1-1-2-1</span></div>
+                                                <div class="entry"><span class="label">Entry-1-1-1-2-2</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="entry"><span class="label">Entry-1-1-1-4-2</span></div>
+                                        <div class="entry"><span class="label">Entry-1-1-1-4-3</span></div>
+                                    </div>
+                                </div>
+                                <div class="entry"><span class="label">Entry-1-1-1-5</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="entry">
+                    <span class="label">Entry-1-2</span>
+                    <div class="branch lv3">
+                        <div class="entry sole"><span class="label">Entry-1-2-1</span></div>
+                    </div>
+                </div>
+                <div class="entry"><span class="label">Entry-1-2</span>
+                </div>
+                <div class="entry">
+                    <span class="label">Entry-1-3</span>
+                    <div class="branch lv3">
+                        <div class="entry sole"><span class="label">Entry-1-3-1</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="entry"><span class="label">Entry-5</span></div>
+    </div>
+</div>
+
+
+<div class="wrapper"><span class="label">Root</span>
+	<div class="branch LV1">
+		<div class="entry"><span class="label">Split 1</span>
+			<div class="branch LV2">
+				<div class="entry"><span class="label">Split 1-1</span>
+				</div>				
+				<div class="entry"><span class="label">Split 1-2</span></div>
+			</div>
+		</div>
+		<div class="entry"><span class="label">Split 2</span></div>
+		<div class="entry"><span class="label">Split 3</span>
+			<div class="branch Lv2">
+				<div class="entry sole"><span class="label">Split 3-1</span></div>
+			</div>
+		</div>
+		<div class="entry"><span class="label">Split 4</span></div>
+	</div>
+</div>
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div *ngFor=""></div>

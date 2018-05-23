@@ -1,0 +1,23 @@
+<div id="all">
+	<div id="wrapper">
+		<h1>{{story.title}}</h1>
+		<div id="text">
+			<p>{{scenetxt}}</p>
+		</div>
+		<div id="options">
+			<table>
+				<tr>
+					<td *ngFor="let inc of scenepaths">
+						<div>
+						<p>{{inc}}</p>
+						<button>Choose</button></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div id="after">
+		<h3>Written by: {{story.author}}</h3>
+		<button>Restart</button>
+	</div>
+</div>

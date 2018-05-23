@@ -1,0 +1,32 @@
+#all {
+	display: inline-block;
+}
+#wrapper {
+	padding: 0px 15px 0px 15px;
+	text-align: center;
+	margin-top: 10px;
+	width: 800px;
+	height: 700px;
+	border: 3px solid black;
+}
+h1 {
+	margin-top: 70px;
+	text-decoration: underline;
+	margin-bottom: 105px;
+}
+#text {
+	margin-bottom: 100px;
+}
+table {
+	table-layout: fixed;
+	width: 100%;
+}
+td {
+	opacity: 0.7;
+}
+td:hover {
+	opacity: 1;
+}
+#after {
+	text-align: center;
+}
