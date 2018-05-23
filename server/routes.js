@@ -160,8 +160,7 @@ module.exports = function(app) {
 				console.log('update', update)
 				update.nodeList.pull(req.params.id2)
 
-
-				/*
+				/* old attempt at deelting node from relevant transition lists, might have to move the lower function up here to account for verification of story existing
 				update.find({ nodeList: {$in: {"transitions":"req.params.id2"}}}, function(err, parents) {
 					if (err) {
 						console.log(err)
@@ -175,9 +174,6 @@ module.exports = function(app) {
 					}
 				})
 				*/
-
-
-
 
 				update.save(function(err, data){
 					if (err) {
