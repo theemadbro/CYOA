@@ -7,8 +7,8 @@ import { ChatService } from '../chat.service';
 	styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-	constructor(private chat: ChatService) { 
-	}
+	constructor(private chat: ChatService) {}
+	
 	textarea: any;
 	log: any;
 
