@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./viewadv.component.css']
 })
 export class ViewadvComponent implements OnInit {
+	stories: any;
 
   constructor() { }
 

@@ -1,28 +1,15 @@
 <div id="all">
 	<div id="wrapper">
-		<h1>Story1</h1>
+		<h1>{{story.title}}</h1>
 		<div id="text">
-			<p>So here's the very beginning of the story, the introduction, the preface. Whatever you intend to call it, everything must come after it, for that is how a story works.</p>
-			<p>And so begins my story, the story of how I tested a component and adjusted the CSS.</p>
-			<p>..........</p>
-			<p>You open up your laptop and prepare to start working. Remembering you last worked with sockets, you cringe a bit, dread filling you.</p>
+			<p>{{scenetxt}}</p>
 		</div>
 		<div id="options">
 			<table>
 				<tr>
-					<td>
+					<td *ngFor="let inc of scenepaths">
 						<div>
-						<p>Switch branches and work on something else</p>
-						<button>Choose</button></div>
-					</td>
-					<td>
-						<div>
-						<p>Start googling sockets</p>
-						<button>Choose</button></div>
-					</td>
-					<td>
-						<div>
-						<p>Browse Twitter</p>
+						<p>{{inc}}</p>
 						<button>Choose</button></div>
 					</td>
 				</tr>
@@ -30,7 +17,7 @@
 		</div>
 	</div>
 	<div id="after">
-		<h3>Written by: Zoe</h3>
+		<h3>Written by: {{story.author}}</h3>
 		<button>Restart</button>
 	</div>
 </div>
