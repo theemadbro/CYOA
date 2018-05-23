@@ -129,7 +129,7 @@ module.exports = function(app) {
 		story.findOneAndUpdate(
 			{"_id": req.params.id1, "nodeList._id": req.params.id2}, 
 			{$set:{"nodeList.$.content":req.body.content, "nodeList.$.note":req.body.note}},
-			{returnNewDocument: true},
+			{new: true},
 			function(err, finalData) {
 				if (err) {
 					console.log(err)
