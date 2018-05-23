@@ -94,7 +94,7 @@ body {
   min-width: 1200px;
   margin: 0;
   padding: 50px;
-  color: #eee9dc;
+  color: #a4a88c;
   font: 16px Verdana, sans-serif;
   background: #2e6ba7;
   -webkit-user-select: none;
@@ -112,7 +112,7 @@ body {
 .branch:before {
   content: "";
   width: 75px;
-  border-top: 4px solid #eee9dc;
+  border-top: 4px solid #a4a88c;
   position: absolute;
   left: -100px;
   top: 50%;
@@ -120,19 +120,19 @@ body {
 }
 .entry {
   position: relative;
-  min-height: 175px;
+  min-height: 200px;
 }
 .entry:before {
   content: "";
   height: 100%;
-  border-left: 4px solid #eee9dc;
+  border-left: 4px solid #a4a88c;
   position: absolute;
   left: -25px;
 }
 .entry:after {
   content: "";
   width: 25px;
-  border-top: 4px solid #eee9dc;
+  border-top: 4px solid #a4a88c;
   position: absolute;
   left: -25px;
   top: 50%;
@@ -142,7 +142,7 @@ body {
   width: 10px;
   height: 50%;
   top: 50%;
-  margin-top: 4px;
+  margin-top: 2px;
   border-radius: 10px 0 0 0;
 }
 .entry:first-child:after {
@@ -157,32 +157,38 @@ body {
 .entry:last-child:after {
   height: 10px;
   border-top: none;
-  border-bottom: 4px solid #eee9dc;
+  border-bottom: 4px solid #a4a88c;
   border-radius: 0 0 0 10px;
   margin-top: -9px;
 }
-.entry.sole:before {
+.entry.single:before {
   display: none;
 }
-.entry.sole:after {
+.entry.single:after {
   width: 25px;
   height: 0;
   margin-top: 1px;
   border-radius: 0;
 }
-.label {
+.node {
   display: block;
   min-height: 150px;
   min-width: 450px;
-  padding: 5px 10px;
+  padding: 10px 15px 15px 10px;
   line-height: 20px;
   /*text-align: center;*/
-  border: 4px solid #eee9dc;
+  border: 8px solid #a4a88c;
   border-radius: 10px;
   position: absolute;
   left: 0;
   top: 50%;
   margin-top: -75px;
   box-shadow: 5px 5px 10px #656565;
-
+  background-color: white;
+  z-index: 1;
+}
+.node textarea {
+	margin-top: 10px;
+	width: 350px;
+	height: 100px;	
 }
