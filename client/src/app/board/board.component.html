@@ -23,6 +23,20 @@
 <hr>
 
 
+<h1>Angular 2 Recursive List</h1>
+<ul>
+  <ng-template #recursiveList let-list>
+    <li *ngFor="let item of list">
+      {{item.title}}
+      <ul *ngIf="item.children.length > 0">
+        <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.children }"></ng-container>
+      </ul>
+    </li>
+  </ng-template>
+  <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: list }"></ng-container>
+</ul>
+
+
 
 <!-- <div class="wrapper"><span class="node">Root</span>
   <div class="branch lv1">
@@ -164,11 +178,11 @@
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-
+<!-- 
 <h2>{{ story | json}}</h2>
 <input type="text" name="title" [(ngModel)]="story.title" ><br><br><br><br><br><br>
 <div class="wrapper">
-	<div class="node"><input type="text" name="note" [(ngModel)]="story.nodeList[0].note"><br><textarea [(ngModel)]="story.nodeList[0].content"></textarea></div>
+	<div class="node"><input type="text" name="note" [(ngModel)]="story.nodeList[0].note"><br><textarea [(ngModel)]="story.nodeList[0].content"></textarea></div> -->
 	<!-- <span class="node"></span> -->
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
