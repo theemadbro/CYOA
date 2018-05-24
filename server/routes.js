@@ -67,6 +67,7 @@ module.exports = function(app) {
 				nnidesc = newstory.nodeList[i].descisions
 				console.log('nnitrans',nnitrans)
 				nnitrans.push(nobj._id)
+				nnidesc.push(dsc)
 			}
 
 
