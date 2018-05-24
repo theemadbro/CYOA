@@ -18,9 +18,9 @@ export class BoardComponent implements OnInit {
 	show = true;
 
 	ngOnInit() {
-		this.getpet(this.id)
+		this.getstory(this.id)
 	}
-	getpet(id) {
+	getstory(id) {
 		let info = this._httpService.singleGet(id)
 		info.subscribe(data => { 
 			console.log(data)

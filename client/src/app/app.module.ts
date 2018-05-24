@@ -14,6 +14,7 @@ import { BoardComponent } from './board/board.component';
 import { HomeComponent } from './home/home.component';
 import { ViewadvComponent } from './viewadv/viewadv.component';
 import { ViewoneComponent } from './viewone/viewone.component';
+import { BranchComponent } from './branch/branch.component';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { ViewoneComponent } from './viewone/viewone.component';
         HomeComponent,
         ViewadvComponent,
         ViewoneComponent,
+        BranchComponent,
     ],
     imports: [
         BrowserModule,
