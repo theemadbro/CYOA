@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { HttpService } from '../http.service';
 
 @Component({
 	selector: 'app-board',
@@ -6,16 +8,29 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-	constructor() {}
-
-	story = {
-		title: 'String',
-		transitionTable: [Number],
-		nodeList: [{content: 'hello world', note: 'start of story'}],
-		rating: 0
-	}
+	constructor(private _httpService: HttpService,
+		private _route: ActivatedRoute,
+		private _router: Router
+	) {}
+	id = '5b06575956282e3954d2b2ac';
+	story: any;
+	nlist = [];
+	show = true;
 
 	ngOnInit() {
+		this.getpet(this.id)
 	}
-
+	getpet(id) {
+		let info = this._httpService.singleGet(id)
+		info.subscribe(data => { 
+			console.log(data)
+			this.story = data 
+			console.log(this.story)
+			this.nlist = this.story.nodeList
+			console.log(this.nlist)
+			for(var i=0; i < this.nlist.length; i++){
+				console.log(this.nlist[i].transitions.length)
+			}
+		})
+	}
 }

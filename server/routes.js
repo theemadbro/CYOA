@@ -16,22 +16,62 @@ module.exports = function(app) {
 			title: req.body.title
 		})
 		console.log('newstory', newstory)
-		let nlist = req.body.nodeList
+		let nlist = req.body.fresh
+		let trnlist = req.body.trans
+		console.log(nlist)
 		console.log(nlist, nlist.length)
 		// for(var i in nlist){
 		// 	console.log(nlist[i])
 		// 	newstory.nodeList[i] = new node({content: nlist[i].content, note: nlist[i].note})
 		// }
-		for (var i=0; i < nlist.length; i++){
+		for (let i=0; i < nlist.length; i++){
 			console.log(i, nlist[i])
 			newstory.nodeList[i] = new node({content: nlist[i].content, note: nlist[i].note})
 		}
 		console.log('-------')
 		console.log('-------')
-		console.log('-------')
 		console.log('newstory after adding nodes?')
 		console.log(newstory)
-		
+		console.log('-------')
+		console.log('-------')
+		console.log('-------')
+		console.log('newstory nodelist!', '0', newstory.nodeList[0], '1', newstory.nodeList[1] )
+		for (var i = 0; i < nlist.length; i++) {
+			console.log('hecck')
+			console.log('hecck')
+			console.log('hecck')
+			console.log('hecck')
+			console.log('hecck')
+			console.log(i)
+			console.log(newstory.nodeList[i].transitions)
+			// console.log(newstory.nodeList[i])
+			let test = newstory.nodeList[i]
+			console.log('test =',test)
+			let nnid = test._id
+			console.log('nnid, or test id, =', nnid)
+			for (var x = 0; x < trnlist[i].length; x++){
+				let temp = trnlist[i][x]
+				console.log('temp', temp)
+				if(temp == -1){
+					console.log('SKIB tHIS')
+					continue
+				}
+				console.log('node', temp, '=', newstory.nodeList[temp])
+				let nobj = newstory.nodeList[temp]
+				console.log('nobj',nobj)
+				nnitrans = newstory.nodeList[i].transitions
+				console.log('nnitrans',nnitrans)
+				nnitrans.push(nobj._id)
+			}
+
+
+
+
+			// newstory.nodeList[i].transitions.push(newstory.nodelist[trnlist[i][0]]._id)
+			// for (var x = 0; x < newstory[nodeList][i].length; x++) {
+			// 	newstory.nodeList[i].transitions.push(newstory.nodeList[nlist[i].nodeList[x]]._id)
+			// }
+		}
 		newstory.save(function(err, data){
 			console.log('story saved!')
 			if (err) {

@@ -26,6 +26,7 @@ import { ViewoneComponent } from './viewone/viewone.component';
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule,
         FormsModule
     ],
     providers: [

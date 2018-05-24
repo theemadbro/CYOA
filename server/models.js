@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Nodeschema = new mongoose.Schema({
 	content: {type:String, default: "Enter text here"},
 	note: String,
-	transitions: {type:String, default: []}
+	transitions: {type:[String], default: []}
 })
 mongoose.model('Node', Nodeschema)
 

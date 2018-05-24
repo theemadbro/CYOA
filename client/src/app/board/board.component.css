@@ -116,7 +116,7 @@ body {
   position: absolute;
   left: -100px;
   top: 50%;
-  margin-top: 1px;
+  margin-top: 0px;
 }
 .entry {
   position: relative;
@@ -136,7 +136,7 @@ body {
   position: absolute;
   left: -25px;
   top: 50%;
-  margin-top: 1px;
+  margin-top: 0px;
 }
 .entry:first-child:before {
   width: 10px;
@@ -167,7 +167,7 @@ body {
 .entry.single:after {
   width: 25px;
   height: 0;
-  margin-top: 1px;
+  margin-top: 0px;
   border-radius: 0;
 }
 .node {
