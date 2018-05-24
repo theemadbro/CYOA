@@ -24,3 +24,6 @@ button {
 	border: 1px solid #6f725c;
 	padding: 2px 8px;
 }
+button:hover {
+	background: #c2c6a7;
+}

@@ -16,12 +16,14 @@ export class ViewoneComponent implements OnInit {
 	prev: any;
 	dis: any;
 	id: any;
+	end: any;
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
   	private _httpService: HttpService) { }
 
   ngOnInit() {
+  	this.end = false;
   	this.prev = {}
   	this.dis = "true"
   	this.story = {}
@@ -49,12 +51,14 @@ export class ViewoneComponent implements OnInit {
   }
 
   restartStory() {
+  	this.end = false;
   	this.dis = "true"
   	this.scene = this.firstscene
 	this.getPaths(0)
   }
 
   goBack() {
+  	this.end = false;
   	this.scene = this.story["nodeList"][this.prev];
   	this.dis = "true"
   	this.getPaths(this.prev)
@@ -62,6 +66,9 @@ export class ViewoneComponent implements OnInit {
 
   getPaths(index) {
   	this.scenepaths = []
+  	if(this.story["nodeList"][index]["transitions"].length == 0) {
+  		this.end = true;
+  	}
   	for(var i = 0; i < this.story["nodeList"][index]["transitions"].length; i++) {
 		this.singlepath["txt"] = this.story["nodeList"][index]["decisions"][i]
 		this.singlepath["trans"] = this.story["nodeList"][index]["transitions"][i]
