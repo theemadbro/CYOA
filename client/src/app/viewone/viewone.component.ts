@@ -11,6 +11,7 @@ export class ViewoneComponent implements OnInit {
 	story: any;
 	scene: any;
 	scenepaths: any;
+	singlepath: any;
 	firstscene: any;
 	prev: any;
 	dis: any;
@@ -27,6 +28,7 @@ export class ViewoneComponent implements OnInit {
   	this.scene = {}
   	this.firstscene = {}
   	this.scenepaths = []
+  	this.singlepath = {}
   	this._route.params.subscribe((params: Params) => this.id = params['id'])
   	var onestory = this._httpService.singleGet(this.id)
   	onestory.subscribe(data => {
@@ -34,34 +36,38 @@ export class ViewoneComponent implements OnInit {
   		this.story = data;
   		this.scene = data["nodeList"][0]
   		this.firstscene = this.scene
-  		var i = 0;
+  		this.getPaths(0)
   	})
 	  	
   }
 
   pathSelect(id) {
-  	this.scenepaths = []
-  	var i = 0;
-  	var clickedid = 0 // set so the index for the nn can be grabbed
-  	while(i < this.story["nodeList"].length) {
-  		if(this.story["nodeList"][i]["_id"] == id) {
-  			clickedid = i // grabs the index of the nn
-  			this.dis = ""
-  			this.prev = this.scene
-  			this.scene = this.story["nodeList"][i]
-  		}
-  		i++
-  	}
+	this.dis = ""
+	this.prev = this.story["nodeList"].indexOf(this.scene)
+	this.scene = this.story["nodeList"][id]
+	this.getPaths(id)
   }
 
   restartStory() {
   	this.dis = "true"
   	this.scene = this.firstscene
+	this.getPaths(0)
   }
 
   goBack() {
-  	this.scene = this.prev;
+  	this.scene = this.story["nodeList"][this.prev];
   	this.dis = "true"
+  	this.getPaths(this.prev)
+  }
+
+  getPaths(index) {
+  	this.scenepaths = []
+  	for(var i = 0; i < this.story["nodeList"][index]["transitions"].length; i++) {
+		this.singlepath["txt"] = this.story["nodeList"][index]["decisions"][i]
+		this.singlepath["trans"] = this.story["nodeList"][index]["transitions"][i]
+		this.scenepaths.push(this.singlepath)
+		this.singlepath = {}
+	}
   }
 
 }
