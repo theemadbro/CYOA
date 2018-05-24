@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-viewadv',
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class ViewadvComponent implements OnInit {
 	stories: any;
 
-  constructor() { }
+  constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
+  	this.stories = []
+  	var getstories = this._httpService.getAllMain()
+  	getstories.subscribe(data => {
+  		this.stories = data["data"]
+  	})
   }
 
 }

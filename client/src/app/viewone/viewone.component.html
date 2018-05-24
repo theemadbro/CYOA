@@ -10,7 +10,7 @@
 					<td *ngFor="let inc of scenepaths">
 						<div>
 						<p>{{inc.content}}</p>
-						<button>Choose</button></div>
+						<button (click)="pathSelect(inc._id)">Choose</button></div>
 					</td>
 				</tr>
 			</table>
@@ -18,6 +18,6 @@
 	</div>
 	<div id="after">
 		<h3>Written by: {{story.author}}</h3>
-		<button>Back One</button><button>Restart</button>
+		<button (click)="goBack()" [disabled]="dis">Go Back Once</button><button (click)="restartStory()">Restart</button>
 	</div>
 </div>

@@ -6,6 +6,7 @@
 	height: 800px;
 }
 .story {
+	vertical-align: top;
 	display: inline-block;
 	margin: 5px;
 	padding-top: 10px;
