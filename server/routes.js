@@ -14,6 +14,17 @@ module.exports = function(app) {
 		var newstory = new story({
 			title: req.body.title
 		})
+		let nlist = req.body.nodeList
+		for (var i=0; i<nlist.length; i++){
+			console.log(i, nlist[i])
+			newstory.nodeList[i] = new Node({content: nlist[i].content, note: nlist[i].note})
+		}
+		for (var i = 0; i < nlist.length; i++) {
+			for (var j = 0; i < nlist[i].nodeList.length; j++) {
+				newstory.nodeList[i].transitions.push(newstory.nodeList[nlist[i].nodeList[j]]._id)
+			}
+			
+		}
 		newstory.save(function(err, data){
 			if (err) {
 				console.log('POST/CREATION ERRORS!')

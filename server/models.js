@@ -15,7 +15,7 @@ mongoose.model('Node', Nodeschema)
 
 var Storyschema = new mongoose.Schema({
 	title: {type:String, default: "Enter your title here", required: true},
-	nodeList: {type:[Nodeschema], default: mongoose.model('Node', Nodeschema)},
+	nodeList: [Nodeschema],
 	rating : {type:Number, default: 0, required: true}
 }, {timestamps: true})
 mongoose.model('Story', Storyschema)
