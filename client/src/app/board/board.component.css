@@ -4,8 +4,7 @@
 	margin-top: 20px;
 	width: 95%;
 	height: 660px;
-	background-color: #a87446;
-	border: 5px solid #77512e;
+	border: 5px solid #6f725c;
 }
 #lower {
 	display: inline-block;
@@ -13,15 +12,15 @@
 	margin-top: 20px;
 	width: 95%;
 	height: 250px;
-	background-color: #696c70;
-	border: 5px solid #434547;
+	border: 5px solid #6f725c;
 }
 #zoomstuff {
 	margin-bottom: 15px;
 	position: sticky;
+  top: 0px;
 	padding: 5px;
 	display: inline-block;
-	background-color: rgba(255,255,255, 0.5);
+	background-color: rgba(215,215,215, 0.5);
 }
 #zoomstuff button {
 	display: inline-block;
@@ -32,13 +31,11 @@
 	background: linear-gradient(0deg, rgba(208,208,208,1) 0%, rgba(245,245,245,1) 71%);
 }
 #zoomstuff p {
+  margin: 0px;
 	display: inline-block;
 	padding: 3px;
 }
 #layoutholder {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
 }
 #firstrow {
 	display: inline-flex;
@@ -61,24 +58,6 @@
 }
 .child {
 	margin-left: 100%;
-}
-#sbprime {
-	background-color: blue;
-}
-#sb1 {
-	background-color: red;
-}
-#sb2 {
-	background-color: green;
-}
-#sb3 {
-	background-color: black;
-}
-#sb4 {
-	background-color: purple;
-}
-#sb5 {
-	background-color: yellow;
 }
 
 

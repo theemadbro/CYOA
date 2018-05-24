@@ -1,11 +1,5 @@
-<p>
-  home works!
-</p>
-<input 
-	name="textarea"
-	type="text" 
-	[(ngModel)]="textarea">
-<button (click)="sendMessage()">Send Message</button>
-<div id="chatlog">
-	<p *ngFor="let i of log">{{i}}</p>
+<div id="wrapper">
+	<h2>Welcome to Choose Your Own Adventure!</h2>
+	<p>This is a web application created by three people who had the idea to create an interactive web application that would allow a user to create their own "choose your own adventure" story. To accomplish this task, we utilized MongoDB, Express, Angular, and Node, and in the long-term, intend to implement sockets so we can turn this application from handling a single user at a time, to allowing multiple people to work on one project at the same time.</p>
+	<p>Our long-term goals are to have users that can log in and out, tying stories to users, and allowing voting on stories.</p>
 </div>

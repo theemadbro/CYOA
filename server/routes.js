@@ -64,7 +64,7 @@ module.exports = function(app) {
 				let nobj = newstory.nodeList[trnid]
 				console.log('nobj',nobj)
 				nnitrans = newstory.nodeList[i].transitions
-				nnidesc = newstory.nodeList[i].descisions
+				nnidesc = newstory.nodeList[i].decisions
 				console.log('nnitrans',nnitrans)
 				nnitrans.push(trnid)
 				nnidesc.push(dsc)
