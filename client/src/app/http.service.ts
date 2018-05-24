@@ -8,7 +8,6 @@ export class HttpService {
 	constructor(private _http: HttpClient) {}
 
 	getAllMain() {
-    	console.log('get all pets! - from http.service.ts')
 	    return this._http.get('/story');
 	}
 	singleGet(id) {

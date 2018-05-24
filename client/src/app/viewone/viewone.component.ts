@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewone',
@@ -11,17 +13,21 @@ export class ViewoneComponent implements OnInit {
 	scenepaths: any;
 	// firstscene: any;
 
-  constructor() { }
+  constructor(private _route: ActivatedRoute,
+    private _router: Router,
+  	private _httpService: HttpService) { }
 
   ngOnInit() {
   	this.story = {}
-  	this.scenetxt = ""
-  	this.scenepaths = []
-  	// this.firstscene = {}
-  	this.story["title"] = "CSS Wonders"
-  	this.story["author"] = "Zoe Chastain"
-  	this.scenetxt = "You open up your laptop and prepare to start working. Remembering you last worked with sockets, you cringe a bit, dread filling you."
-  	this.scenepaths = ["Switch branches and work on something else", "Start googling sockets", "Browse Twitter"]
+  	var onestory = this._httpService.singleGet("5b06f62ea28b914b34469196")
+  	onestory.subscribe(data => {
+  		console.log(data)
+  		this.story = data;
+  	})
+  }
+
+  pathSelect(id) {
+
   }
 
 }
