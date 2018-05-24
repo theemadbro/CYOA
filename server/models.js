@@ -9,6 +9,7 @@ mongoose.model('Node', Nodeschema)
 
 var Storyschema = new mongoose.Schema({
 	title: {type:String, default: "Enter your title here", required: true},
+	author: {type:String, default: 'anonymous'},
 	nodeList: [Nodeschema],
 	rating : {type:Number, default: 0}
 }, {timestamps: true})
