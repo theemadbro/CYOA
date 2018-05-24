@@ -19,6 +19,7 @@ module.exports = function(app) {
 		console.log('newstory', newstory)
 		let nlist = req.body.fresh
 		let trnlist = req.body.trans
+		let dsclist = req.body.dec
 		console.log(nlist)
 		console.log(nlist, nlist.length)
 		// for(var i in nlist){
@@ -51,16 +52,19 @@ module.exports = function(app) {
 			let nnid = test._id
 			console.log('nnid, or test id, =', nnid)
 			for (var x = 0; x < trnlist[i].length; x++){
-				let temp = trnlist[i][x]
-				console.log('temp', temp)
-				if(temp == -1){
+				let trnid = trnlist[i][x]
+				let dsc = dsclist[i][x]
+				console.log('trnid', trnid)
+				console.log('descision', dsc)
+				if(trnid == -1){
 					console.log('SKIB tHIS')
 					continue
 				}
-				console.log('node', temp, '=', newstory.nodeList[temp])
-				let nobj = newstory.nodeList[temp]
+				console.log('node', trnid, '=', newstory.nodeList[trnid])
+				let nobj = newstory.nodeList[trnid]
 				console.log('nobj',nobj)
 				nnitrans = newstory.nodeList[i].transitions
+				nnidesc = newstory.nodeList[i].descisions
 				console.log('nnitrans',nnitrans)
 				nnitrans.push(nobj._id)
 			}
