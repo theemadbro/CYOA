@@ -20,7 +20,7 @@ export class ViewoneComponent implements OnInit {
   	// this.firstscene = {}
   	this.story["title"] = "CSS Wonders"
   	this.story["author"] = "Zoe Chastain"
-  	this.scenetxt = "So here's the very beginning of the story, the introduction, the preface. Whatever you intend to call it, everything must come after it, for that is how a story works."
+  	this.scenetxt = "You open up your laptop and prepare to start working. Remembering you last worked with sockets, you cringe a bit, dread filling you."
   	this.scenepaths = ["Switch branches and work on something else", "Start googling sockets", "Browse Twitter"]
   }
 
