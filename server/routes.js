@@ -13,7 +13,8 @@ module.exports = function(app) {
 		console.log('making new story')
 		console.log(req.body)
 		var newstory = new story({
-			title: req.body.title
+			title: req.body.title,
+			author: req.body.author
 		})
 		console.log('newstory', newstory)
 		let nlist = req.body.fresh
