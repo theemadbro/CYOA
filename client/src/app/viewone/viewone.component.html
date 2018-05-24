@@ -2,14 +2,14 @@
 	<div id="wrapper">
 		<h1>{{story.title}}</h1>
 		<div id="text">
-			<p>{{scenetxt}}</p>
+			<p>{{scene.content}}</p>
 		</div>
 		<div id="options">
 			<table>
 				<tr>
 					<td *ngFor="let inc of scenepaths">
 						<div>
-						<p>{{inc}}</p>
+						<p>{{inc.content}}</p>
 						<button>Choose</button></div>
 					</td>
 				</tr>
@@ -17,7 +17,7 @@
 		</div>
 	</div>
 	<div id="after">
-		<h3>Written by: no one</h3>
-		<button>Restart</button>
+		<h3>Written by: {{story.author}}</h3>
+		<button>Back One</button><button>Restart</button>
 	</div>
 </div>

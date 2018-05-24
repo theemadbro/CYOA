@@ -9,9 +9,10 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class ViewoneComponent implements OnInit {
 	story: any;
-	scenetxt: any;
+	scene: any;
 	scenepaths: any;
-	// firstscene: any;
+	firstscene: any;
+	prev: any;
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
@@ -19,10 +20,16 @@ export class ViewoneComponent implements OnInit {
 
   ngOnInit() {
   	this.story = {}
-  	var onestory = this._httpService.singleGet("5b06f62ea28b914b34469196")
+  	this.scene = {}
+  	this.firstscene = {}
+  	var onestory = this._httpService.singleGet("5b06fa1da62e7e1c2cf62d77")
   	onestory.subscribe(data => {
   		console.log(data)
   		this.story = data;
+  		this.scene = data["nodeList"][0]
+  		this.firstscene = this.scene
+  		this.scenepaths = data["nodeList"][0]["transitions"]
+  		this.prev = this.scene
   	})
   }
 
