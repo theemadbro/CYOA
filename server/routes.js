@@ -11,21 +11,29 @@ module.exports = function(app) {
 			data: ''
 		}
 		console.log('making new story')
+		console.log(req.body)
 		var newstory = new story({
 			title: req.body.title
 		})
+		console.log('newstory', newstory)
 		let nlist = req.body.nodeList
-		for (var i=0; i<nlist.length; i++){
+		console.log(nlist, nlist.length)
+		// for(var i in nlist){
+		// 	console.log(nlist[i])
+		// 	newstory.nodeList[i] = new node({content: nlist[i].content, note: nlist[i].note})
+		// }
+		for (var i=0; i < nlist.length; i++){
 			console.log(i, nlist[i])
-			newstory.nodeList[i] = new Node({content: nlist[i].content, note: nlist[i].note})
+			newstory.nodeList[i] = new node({content: nlist[i].content, note: nlist[i].note})
 		}
-		for (var i = 0; i < nlist.length; i++) {
-			for (var j = 0; i < nlist[i].nodeList.length; j++) {
-				newstory.nodeList[i].transitions.push(newstory.nodeList[nlist[i].nodeList[j]]._id)
-			}
-			
-		}
+		console.log('-------')
+		console.log('-------')
+		console.log('-------')
+		console.log('newstory after adding nodes?')
+		console.log(newstory)
+		
 		newstory.save(function(err, data){
+			console.log('story saved!')
 			if (err) {
 				console.log('POST/CREATION ERRORS!')
 				pack['state'] = 'bad'
@@ -43,6 +51,10 @@ module.exports = function(app) {
 
 	//get all stories
 	app.get('/story', function(req, res) {
+		var pack = {
+			state: 'good',
+			data: ''
+		}
 		console.log('get all')
 		story.find({}, function(err, data) {
 			if (err) {
